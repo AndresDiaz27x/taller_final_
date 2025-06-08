@@ -1,0 +1,32 @@
+<div class="quiz-container">
+    <h2>Quiz: Historia del Internet</h2>
+  
+    <div *ngFor="let pregunta of preguntas; let i = index" class="card">
+      <p class="pregunta"><strong>{{ i + 1 }}. {{ pregunta.texto }}</strong></p>
+      <div class="opciones">
+        <button *ngFor="let opcion of pregunta.opciones"
+                (click)="seleccionar(pregunta, opcion)"
+                [ngClass]="{
+                  seleccionado: pregunta.seleccionada === opcion,
+                  correcto: mostrarResultado && opcion === pregunta.respuestaCorrecta,
+                  incorrecto: mostrarResultado && pregunta.seleccionada === opcion && opcion !== pregunta.respuestaCorrecta
+                }">
+          {{ opcion }}
+        </button>
+      </div>
+    </div>
+  
+    <div class="acciones">
+      <button class="btn-principal" (click)="verificarRespuestas()" [disabled]="mostrarResultado">✔ Enviar respuestas</button>
+      <button class="btn-secundario" (click)="reiniciar()" *ngIf="mostrarResultado">🔄 Reiniciar</button>
+    </div>
+  
+    <div *ngIf="mostrarResultado" class="resultado">
+      <h3>Tu puntaje: {{ puntaje }} / {{ preguntas.length }}</h3>
+      <p *ngIf="puntaje === preguntas.length">¡Excelente! Eres un crack.</p>
+      <p *ngIf="puntaje < preguntas.length && puntaje > 0">¡Bien hecho! Puedes mejorar aún más.</p>
+      <p *ngIf="puntaje === 0">Ups... ¡inténtalo otra vez!</p>
+    </div>
+  </div>
+  
+

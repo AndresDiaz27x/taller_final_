@@ -1,0 +1,19 @@
+<nav class="navbar">
+    <div class="navbar-container">
+      <span class="logo">Historia del Internet</span>
+  
+      <!-- Botón hamburguesa -->
+      <button class="menu-toggle" (click)="toggleMenu()">☰</button>
+  
+      <!-- Enlaces de navegación -->
+      <ul [class.show]="menuAbierto" class="nav-links">
+        <li><a routerLink="/">Inicio</a></li>
+        <li><a routerLink="/modulo1">El internet</a></li>
+        <li><a routerLink="/modulo2">Actividad Interactiva</a></li>
+        <li><a routerLink="/modulo4">Verdadero o falso</a></li>
+        <li><a routerLink="/modulo3">Quiz</a></li>
+        <li><a routerLink="/creditos">Créditos</a></li>
+      </ul>
+    </div>
+  </nav>
+  

@@ -1,0 +1,37 @@
+.creditos-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 2.5rem;
+    background-color: #f7fafc;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .creditos-container h2 {
+    color: #2b6cb0;
+    margin-bottom: 2rem;
+  }
+  
+  .creditos-container h3 {
+    margin-top: 1.5rem;
+    color: #4a5568;
+  }
+  
+  .creditos-container p, ul {
+    font-size: 1.1rem;
+    color: #2d3748;
+    margin-bottom: 0.8rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  ul li::before {
+    content: "✔ ";
+    color: #2b6cb0;
+  }
+  

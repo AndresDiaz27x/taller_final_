@@ -1,0 +1,31 @@
+<div class="modulo-container">
+    <h2>¿Verdadero o Falso?</h2>
+    <p>Lee cada afirmación y selecciona si es verdadera o falsa.</p>
+  
+    <div class="pregunta-card" *ngFor="let pregunta of preguntas">
+      <p><strong>{{ pregunta.texto }}</strong></p>
+  
+      <div class="botones">
+        <button [disabled]="pregunta.respondida"
+                [ngClass]="{ correcto: pregunta.respondida && pregunta.respuestaCorrecta === true && pregunta.respuestaUsuario === true,
+                             incorrecto: pregunta.respondida && pregunta.respuestaCorrecta === false && pregunta.respuestaUsuario === true }"
+                (click)="responder(pregunta, true)">Verdadero</button>
+  
+        <button [disabled]="pregunta.respondida"
+                [ngClass]="{ correcto: pregunta.respondida && pregunta.respuestaCorrecta === false && pregunta.respuestaUsuario === false,
+                             incorrecto: pregunta.respondida && pregunta.respuestaCorrecta === true && pregunta.respuestaUsuario === false }"
+                (click)="responder(pregunta, false)">Falso</button>
+      </div>
+    </div>
+  
+    <div *ngIf="mostrarResultado" class="resultado">
+      <h3>Puntaje final: {{ puntaje }} / {{ preguntas.length }}</h3>
+      <p *ngIf="puntaje === preguntas.length">¡Excelente! Dominaste el tema.</p>
+      <p *ngIf="puntaje < preguntas.length && puntaje > 0">¡Buen intento! Puedes repasar y mejorar.</p>
+      <p *ngIf="puntaje === 0">Ups, intenta otra vez.</p>
+      <button (click)="reiniciar()">Reiniciar</button>
+    </div>
+  </div>
+  
+  
+  
